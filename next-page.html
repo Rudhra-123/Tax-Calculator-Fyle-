@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Calculation Results</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .result-container {
+            width: 400px;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .result-item {
+            margin-bottom: 20px;
+        }
+
+        .close-btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 3px;
+            background-color: rgba(9, 9, 129, 0.669);
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .close-btn:hover {
+            background-color: #6a006a;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container">
+        <h1>Tax Calculation Results</h1>
+        <div class="result-item">
+            <h3>Total Income (after deductions):</h3>
+            <p id="total-income"></p>
+        </div>
+        <div class="result-item">
+            <h3>Tax Deduction:</h3>
+            <p id="tax-deduction"></p>
+        </div>
+
+        <button class="close-btn">Close</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Retrieve values from sessionStorage
+            const totalIncome = sessionStorage.getItem('totalIncome');
+            const tax = sessionStorage.getItem('tax');
+
+            // Display values on the page
+            document.getElementById('total-income').innerText = totalIncome;
+            document.getElementById('tax-deduction').innerText = tax;
+
+            // Close button event listener
+            document.querySelector('.close-btn').addEventListener('click', function() {
+                window.close(); // Close the window
+                if (window.opener && !window.opener.closed) {
+                    window.opener.location.href = 'index.html'; // Redirect parent window
+                } else {
+                    window.location.href = 'index.html'; // Redirect current window
+                }
+            });
+        });
+    </script>
+</body>
+</html>

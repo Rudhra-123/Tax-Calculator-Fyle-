@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="form-container">
+        <form id="tax-form">
+            <label for="income">Gross Annual Income (£):</label>
+            <input type="text" id="income" class="input-field">
+            <span class="error-icon">?</span>
+            <div class="error-message">Please enter a valid income amount.</div>
+
+            <label for="extra-income">Extra Income (£):</label>
+            <input type="text" id="extra-income" class="input-field">
+            <span class="error-icon">?</span>
+            <div class="error-message">Please enter a valid extra income amount.</div>
+
+            <label for="age">Age Group:</label>
+            <select id="age" class="dropdown-field">
+                <option value="<40">&lt;40</option>
+                <option value=">=40&<60">&ge;40 &lt;60</option>
+                <option value=">=60">&ge;60</option>
+            </select>
+            <span class="error-icon">?</span>
+            <div class="error-message">Please select an age group.</div>
+
+            <label for="deductions">Total Applicable Deductions (£):</label>
+            <input type="text" id="deductions" class="input-field">
+            <span class="error-icon">?</span>
+            <div class="error-message">Please enter a valid deductions amount.</div>
+
+            <button type="submit" id="submit-btn">Submit</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
